@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import bcrypt from 'bcryptjs';
+
 export default {
     data() {
         return {
@@ -19,7 +21,7 @@ export default {
     methods: {
         login() {
             const user = JSON.parse(localStorage.getItem('user'));
-            if (user && user.email === this.email && user.password === this.password) {
+            if (user && user.email === this.email && bcrypt.compareSync(this.password, user.password)) {
                 localStorage.setItem('auth', true);
                 this.$router.push('/dashboard');
             } else {

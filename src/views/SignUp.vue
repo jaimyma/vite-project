@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import bcrypt from 'bcryptjs';
+
     export default {
         data() {
             return {
@@ -18,7 +20,10 @@
         },
         methods: {
             signUp() {
-                const user = { email: this.email, password: this.password};
+                const salt = bcrypt.genSaltSync(10);
+                const hashedPassword = bcrypt.hashSync(this.password, salt);
+
+                const user = { email: this.email, password: hashedPassword};
                 localStorage.setItem('user', JSON.stringify(user));
                 alert('Account aangemaakt! Log in met je ggevens.');
                 this.$router.push('/');
