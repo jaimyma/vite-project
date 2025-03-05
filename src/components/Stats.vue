@@ -53,7 +53,7 @@ export default {
       stats.value.forEach((stat, index) => {
         let start = 0;
         let end = stat.number;
-        let duration = 2000; // 2 seconden
+        let duration = 1500; // 2 seconden
         let startTime = null;
 
         function animate(timestamp) {

@@ -1,9 +1,9 @@
 <template>
-  <LandingPage />
-  <Stats />
-  <Content />
-  <carousel />
+  <div>
+    <router-view></router-view>
+  </div>
 </template>
+
 
 <script>
 import LandingPage from './components/LandingPage.vue'
