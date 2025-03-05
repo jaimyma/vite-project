@@ -3,6 +3,7 @@
     <Stats />
     <Content />
     <carousel />
+    <button @click="logout">Uitloggen</button>
 </template>
   
 
@@ -19,5 +20,11 @@ export default {
     Content,
     carousel,
   },
-}
+  methods: {
+    logout() {
+      localStorage.removeItem('auth');
+      this.$router.push('/');
+    }
+  }
+};
 </script>
